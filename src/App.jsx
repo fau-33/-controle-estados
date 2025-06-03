@@ -5,6 +5,33 @@ function App() {
   const [telefone, setTelefone] = useState("");
   const [email, setEmail] = useState("");
 
+  const clientes = [
+    {
+      id: 1,
+      nome: "Ana Cristina",
+      telefone: "34 9 9999-0000",
+      email: "ana@gmail.com",
+    },
+    {
+      id: 2,
+      nome: "Beto Silva",
+      telefone: "34 9 9559-0000",
+      email: "beto@terra.com",
+    },
+    {
+      id: 3,
+      nome: "Cassiano Sousa",
+      telefone: "34 9 9955-7878",
+      email: "casousa@gmail.com",
+    },
+    {
+      id: 4,
+      nome: "Diana Santos",
+      telefone: "34 9 9955-7878",
+      email: "dianasantos@gmail.com",
+    },
+  ];
+
   const handleValidate = (e) => {
     if (!nome) {
       alert("Nome é obrigatório!");
@@ -70,6 +97,28 @@ function App() {
         <p>Telefone: {telefone}</p>
         <p>E-mail: {email}</p>
       </div>
+      {/* Output table */}
+      <table className="table table-striped mt-3">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>E-mail</th>
+          </tr>
+        </thead>
+        <tbody>
+          {clientes.map((cliente) => (
+            <tr key={cliente.id}>
+              <td>{cliente.id}</td>
+              <td>{cliente.nome}</td>
+              <td>{cliente.telefone}</td>
+              <td>{cliente.email}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <br />
     </div>
   );
 }
